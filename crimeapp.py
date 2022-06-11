@@ -103,8 +103,8 @@ with st.container():
     with open("model1_pickle", "rb") as file:
         groups = pickle.load(file)
 
-    with open("rs_pickle", "rb") as file:
-        rs = pickle.load(file)
+    #with open("rs_pickle", "rb") as file:
+        #rs = pickle.load(file)
     #rs= RobustScaler()
 
     #df = pd.read_csv("df45.csv")
