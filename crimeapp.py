@@ -20,7 +20,7 @@ import warnings
 
 @st.cache(persist= True)
 def load_data():
-    df = pd.read_csv("train.csv", low_memory=False)
+    df = pd.read_csv("kaggle kernels output sridurgakrithivasan/san-francisco-crime-prediction -p /path/to/dest", low_memory=False)
     df["Year"] = pd.DatetimeIndex(df["Dates"]).year
     df = df.query("Year>= 2007")
     df["Month"] = pd.DatetimeIndex(df["Dates"]).month
@@ -59,7 +59,7 @@ with st.container():
         rs = pickle.load(file)
     #rs= RobustScaler()
 
-    #df = pd.read_csv("train.csv")
+    #df = pd.read_csv("kaggle kernels output sridurgakrithivasan/san-francisco-crime-prediction -p /path/to/dest")
     #df["Month"] = pd.DatetimeIndex(df["Dates"]).month
     #df["Year"] = pd.DatetimeIndex(df["Dates"]).year
     #df["Day"] = pd.DatetimeIndex(df["Dates"]).day
