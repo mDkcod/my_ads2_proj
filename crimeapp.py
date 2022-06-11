@@ -20,12 +20,7 @@ import warnings
 
 @st.cache(persist= True)
 def load_data():
-    df = pd.read_csv("train.csv", low_memory=False)
-    df["Year"] = pd.DatetimeIndex(df["Dates"]).year
-    df = df.query("Year>= 2007")
-    df["Month"] = pd.DatetimeIndex(df["Dates"]).month
-    df["Day"] = pd.DatetimeIndex(df["Dates"]).day
-    df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
+    df = pd.read_csv("df45.csv", low_memory=False)
     return df
 # the method below is used to draw a guage to show crime rate.
 #It is called later in the program
@@ -112,7 +107,7 @@ with st.container():
         rs = pickle.load(file)
     #rs= RobustScaler()
 
-    #df = pd.read_csv("train.csv")
+    #df = pd.read_csv("df45.csv")
     #df["Month"] = pd.DatetimeIndex(df["Dates"]).month
     #df["Year"] = pd.DatetimeIndex(df["Dates"]).year
     #df["Day"] = pd.DatetimeIndex(df["Dates"]).day
@@ -175,12 +170,7 @@ if selection== "Analysis":
 
     with container2:
         #load_data()
-        df = pd.read_csv("train.csv", low_memory=False)
-        df["Year"] = pd.DatetimeIndex(df["Dates"]).year
-        df = df.query("Year>= 2007")
-        df["Month"] = pd.DatetimeIndex(df["Dates"]).month
-        df["Day"] = pd.DatetimeIndex(df["Dates"]).day
-        df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
+        df = pd.read_csv("df45.csv", low_memory=False)
 
         fig, ax= plt.subplots(1, squeeze= True, sharey = "row", sharex= "col")
 
