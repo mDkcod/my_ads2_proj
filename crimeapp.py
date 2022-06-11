@@ -236,11 +236,9 @@ elif selection=="Predict":
 #@st.cache(persist=True)
 @st.cache(suppress_st_warning=True)
 def get_coordinates(ss):
-        df = pd.read_csv("train.csv", low_memory = False)
-        df["Month"] = pd.DatetimeIndex(df["Dates"]).month
-        df["Year"] = pd.DatetimeIndex(df["Dates"]).year
-        df["Day"] = pd.DatetimeIndex(df["Dates"]).day
-        df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
+        df = pd.read_csv("df45.csv", low_memory = False)
+        
+       
         df= df.query("Year>= 2012")
         if regions== "BAYVIEW":
             dQueries = df.query("PdDistrict=='BAYVIEW'")
