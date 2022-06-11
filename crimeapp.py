@@ -103,8 +103,8 @@ with st.container():
     with open("model1_pickle", "rb") as file:
         groups = pickle.load(file)
 
-    #with open("rs_pickle", "rb") as file:
-        #rs = pickle.load(file)
+    with open("rs_pickle", "rb") as file:
+        rs = pickle.load(file)
     #rs= RobustScaler()
 
     #df = pd.read_csv("df45.csv")
@@ -239,7 +239,7 @@ def get_coordinates(ss):
         df = pd.read_csv("df45.csv", low_memory = False)
         
        
-        df= df.query("Year>= 2012")
+        #df= df.query("Year>= 2012")
         if regions== "BAYVIEW":
             dQueries = df.query("PdDistrict=='BAYVIEW'")
             f = dQueries.X.max()
