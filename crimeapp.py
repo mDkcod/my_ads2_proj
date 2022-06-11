@@ -5,7 +5,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-from streamlit_echarts import st_echarts
+#from streamlit_echarts import st_echarts
 import plotly.graph_objects as go
 from PIL import Image
 import streamlit.components.v1 as components
@@ -30,60 +30,7 @@ def load_data():
 # the method below is used to draw a guage to show crime rate.
 #It is called later in the program
 
-def draw_guage():
-    option = {
-    "tooltip": {
-        "formatter": '{a} <br/>{b} : {c}%'
-    },
-    "series": [{
-        "name": 'SF',
-        "type": 'gauge',
-        "startAngle": 180,
-        "endAngle": 0,
-        "progress": {
-            "show": "true"
-        },
-        "radius": '100%',
 
-        "itemStyle": {
-            "color": '#58D9F9',
-            "shadowColor": 'rgba(0,138,255,0.45)',
-            "shadowBlur": 10,
-            "shadowOffsetX": 2,
-            "shadowOffsetY": 2,
-            "radius": '55%',
-        },
-        "progress": {
-            "show": "true",
-            "roundCap": "true",
-            "width": 15
-        },
-        "pointer": {
-            "length": '60%',
-            "width": 8,
-            "offsetCenter": [0, '5%']
-        },
-        "detail": {
-            "valueAnimation": "true",
-            "formatter": '{value}%',
-            "backgroundColor": '#58D9F9',
-            "borderColor": '#999',
-            "borderWidth": 4,
-            "width": '60%',
-            "lineHeight": 20,
-            "height": 20,
-            "borderRadius": 188,
-            "offsetCenter": [0, '40%'],
-            "valueAnimation": "true",
-        },
-        "data": [{
-            "value": 70.34,
-            "name": "RATE OF CRIME IN SF"
-        }]
-    }]
-};
-
-    st_echarts(options=option, key="1")
 
 warnings.filterwarnings("ignore")
 st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_title="CRIME ANALYSIS")
@@ -167,8 +114,7 @@ if selection== "Analysis":
                     ).add_to(sf_map)
 
         folium_static(sf_map)
-    with st.container():
-        draw_guage()
+    
 
     container2= st.container()
     col1, col2 = st.columns(2)
@@ -348,8 +294,6 @@ def get_coordinates(ss):
 
 d=get_coordinates(regions)
 st.write(d)
-with st.container():
-    draw_guage()
 c1=d[0]
 c2=d[1]
 
