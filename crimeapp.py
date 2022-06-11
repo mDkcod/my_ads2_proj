@@ -14,7 +14,7 @@ import json
 from streamlit_folium import folium_static
 import folium as fl
 import pickle
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import RobustScaler
 import warnings
 
@@ -172,7 +172,7 @@ if selection== "Analysis":
         #load_data()
         df = pd.read_csv("df45.csv", low_memory=False)
 
-        #fig, ax= plt.subplots(1, squeeze= True, sharey = "row", sharex= "col")
+        fig, ax= plt.subplots(1, squeeze= True, sharey = "row", sharex= "col")
 
         dist = df["PdDistrict"].value_counts()
         with col1:
