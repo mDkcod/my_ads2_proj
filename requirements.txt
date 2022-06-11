@@ -46,17 +46,9 @@ pyecharts==1.9.1
 Pygments==2.11.2
 Pympler==1.0.1
 
-PyQt5==5.12.3
-PyQt5_sip==4.19.18
-PyQtChart==5.12
-PyQtWebEngine==5.12.1
-pyrsistent==0.18.1
 
-pytz-deprecation-shim==0.1.0.post0
-pywin32==303
-pywinpty==2.0.2
-pyzmq==22.3.0
-requests==2.27.1
+
+
 scikit-learn==1.0.2
 scipy==1.8.0
 
