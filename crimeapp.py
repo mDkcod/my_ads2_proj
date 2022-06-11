@@ -87,8 +87,8 @@ st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_title="
 
 with st.container():
     st.title("Crime Analysis and Prediction App")
-    #st.subheader('"Crime  be tamed if anticipitated"~ (Derrick et al., 2022)')
-    st.subheader("****Select action from left tab*****")
+    st.subheader('"Crime  be tamed if anticipitated"~ (Derrick et al., 2022)')
+    st.subheader("***Select action from left tab***")
     st.write("A San-Francisco Case")
     data = pd.read_csv("df4.csv")
     #st.checkbox("Show dataFrame")
