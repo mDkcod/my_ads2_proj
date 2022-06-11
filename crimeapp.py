@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 #from streamlit_echarts import st_echarts
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 from PIL import Image
 import streamlit.components.v1 as components
 import plotly.express as px
