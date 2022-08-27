@@ -81,6 +81,8 @@ def draw_guage():
 };
 
     st_echarts(options=option, key="1")
+    
+   #### Defining a method to get coordinates###
 @st.cache(suppress_st_warning=True)
 def get_coordinates(selectedRegion):
         df = pd.read_csv("df45.csv", low_memory = False)
@@ -369,7 +371,7 @@ if selection == "Analysis":
 
             #st.line_chart(df["Year"].value_counts())
 
-    #draw_guage()
+    draw_guage()
 
 
 elif selection == "Predict":
