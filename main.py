@@ -269,32 +269,6 @@ if selection == "Analysis":
             #st.line_chart(df["Year"].value_counts())
 
     #draw_guage()
-elif selection == "Predict":
-
-        st.markdown("**Make Predictions on the Rate of crime--> "
-                    "(click on PREDICT button)**")
-        with st.container():
-            left_col, right_col = st.columns(2)
-            right_col.title("Results:")
-            # month= left_col.selectbox(range(1,12))
-            # left_col.button("Press")
-        n = range(1, 13)
-        months = left_col.selectbox("Select month",n )
-
-        Year_menu= [2023, 2024, 2025, 2026, 2027]
-        Year= left_col.selectbox("Select year", Year_menu)
-
-        hour_range= range(0,25)
-        hours= left_col.selectbox("Select Hour", hour_range)
-
-        days_range= range(1,31)
-        Day= left_col.selectbox("Select Day of Month", days_range)
-
-        regions_data= data.PdDistrict
-        regions = left_col.selectbox("Select District", regions_data)
-
-
-#@st.cache(persist=True)
 @st.cache(suppress_st_warning=True)
 def get_coordinates(selectedRegion):
         df = pd.read_csv("df45.csv", low_memory = False)
@@ -398,37 +372,68 @@ def get_coordinates(selectedRegion):
             return xt, yt
 
 
+elif selection == "Predict":
+
+        st.markdown("**Make Predictions on the Rate of crime--> "
+                    "(click on PREDICT button)**")
+        with st.container():
+            left_col, right_col = st.columns(2)
+            right_col.title("Results:")
+            # month= left_col.selectbox(range(1,12))
+            # left_col.button("Press")
+        n = range(1, 13)
+        months = left_col.selectbox("Select month",n )
+
+        Year_menu= [2023, 2024, 2025, 2026, 2027]
+        Year= left_col.selectbox("Select year", Year_menu)
+
+        hour_range= range(0,25)
+        hours= left_col.selectbox("Select Hour", hour_range)
+
+        days_range= range(1,31)
+        Day= left_col.selectbox("Select Day of Month", days_range)
+
+        regions_data= data.PdDistrict
+        regions = left_col.selectbox("Select District", regions_data)
+        
+        d=get_coordinates(regions)
+        st.write(d)
+#with st.container():
+
+        c1=d[0]
+        c2=d[1]
+
+
+        categories= [[c1, c2,months, Year, Day, hours]]
+
+
+        scaling= rs.transform(categories)
+        pred= groups.predict(scaling)
+#st.write(pred.item())
+        def predictions():
+        if pred.item() == 2:
+            
+            right_col.title("VERY HIGH rate of Crime expected")
+        elif pred.item() == 1:
+            right_col.title("MODERATE rate of Crime expected")
+        else:
+            right_col.title("LOW rate of Crime expected")
+    #break
+        if st.button("PREDICT"):
+            predictions()
+        else:
+            right_col.title("Select Inputs")
+
+
+draw_guage()
+        
+
+
+#@st.cache(persist=True)
+
 
 
 
 #regions= data.PdDistrict
-    d=get_coordinates(regions)
-    st.write(d)
-#with st.container():
 
-c1=d[0]
-c2=d[1]
-
-
-categories= [[c1, c2,months, Year, Day, hours]]
-
-
-scaling= rs.transform(categories)
-pred= groups.predict(scaling)
-#st.write(pred.item())
-def predictions():
-    if pred.item() == 2:
-        right_col.title("VERY HIGH rate of Crime expected")
-    elif pred.item() == 1:
-        right_col.title("MODERATE rate of Crime expected")
-    else:
-        right_col.title("LOW rate of Crime expected")
-    #break
-if st.button("PREDICT"):
-    predictions()
-else:
-    right_col.title("Select Inputs")
-
-
-draw_guage()
 
