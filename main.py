@@ -223,9 +223,10 @@ if selection == "Analysis":
                 time_selection = st.selectbox("Select period:", time_select_menu)
 
                 if time_selection == "Months":
-                    data1 = data1.query("Year==2018")
-                    x2 = data1["Month"].value_counts().index
-                    y2 = data1["Month"].value_counts()
+                    #data1 = data1.query("Year==2018")
+                    data["Month"] = pd.DatetimeIndex(data["Dates]).month
+                    x2 = data["Month"].value_counts().index
+                    y2 = data["Month"].value_counts()
 
                     fig1 = go.Figure()
                     fig1.add_trace(go.Bar(x=x2, y=y2, marker=dict(color="orange")))
@@ -406,6 +407,7 @@ def get_coordinates(selectedRegion):
 
 
 
+regions= data.PdDistrict
 d=get_coordinates(regions)
 st.write(d)
 #with st.container():
