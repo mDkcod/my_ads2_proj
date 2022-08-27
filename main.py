@@ -401,9 +401,9 @@ def get_coordinates(selectedRegion):
 
 
 
-regions= data.PdDistrict
-d=get_coordinates(regions)
-st.write(d)
+#regions= data.PdDistrict
+    d=get_coordinates(regions)
+    st.write(d)
 #with st.container():
 
 c1=d[0]
