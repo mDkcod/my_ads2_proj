@@ -293,7 +293,7 @@ if selection == "Analysis":
             #y4= df["Category"].value_counts().index
             x7= data1["incident_category"].value_counts()
             y7= data1["incident_category"].value_counts().index
-            fig6= px.bar(df,x=x7, y=y7)
+            fig6= px.bar(data1,x=x7, y=y7)
             fig6.update_layout(width = 900, height=600)
             fig6.update_layout(xaxis= dict(title= "Number of Occurrences"),
                                yaxis= dict(title= "Crime category"))
