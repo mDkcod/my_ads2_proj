@@ -160,8 +160,8 @@ if selection == "Analysis":
             with st.container():
                 st.title("Data")
   
-                   datashow = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv", low_memory=False)
-                   datashow
+                  datashow = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv", low_memory=False)
+                  datashow
                 
         elif choice == "Districts":
             with st.container():
