@@ -338,8 +338,9 @@ if selection == "Analysis":
                     st.plotly_chart(fig1)
 
                 elif time_selection == "Years":
-                    x1 = data1["incident_year"].value_counts().index
-                    y1 = data1["incident_year"].value_counts()
+                    data34= pd.read_csv("df45.csv")
+                    x1 = data34["Year"].value_counts().index
+                    y1 = data34["Year"].value_counts()
                     fig = go.Figure()
                     fig.add_trace(go.Bar(x=x1, y=y1, marker=dict(color="rgba(174,19,236,0.8)")))
                     fig.update_layout(paper_bgcolor="cyan")
