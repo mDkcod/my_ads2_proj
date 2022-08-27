@@ -225,9 +225,9 @@ if selection == "Analysis":
                 if time_selection == "Months":
                     #data1 = data1.query("Year==2018")
                     data3= pd.read_csv("df45.csv")
-                    data3["Month"] = pd.DatetimeIndex(data3["Dates]).month
-                    x2 = data["Month"].value_counts().index
-                    y2 = data["Month"].value_counts()
+                    #data3["Month"] = pd.DatetimeIndex(data3["Dates]).month
+                    x2 = data3["Month"].value_counts().index
+                    y2 = data3["Month"].value_counts()
 
                     fig1 = go.Figure()
                     fig1.add_trace(go.Bar(x=x2, y=y2, marker=dict(color="orange")))
