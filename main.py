@@ -112,7 +112,7 @@ with st.container():
 if selection == "Analysis":
     data = pd.read_csv("df4.csv")
     data1 = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv", low_memory= False)
-    df = pd.read_csv("train.csv", low_memory=False)
+    #df = pd.read_csv("train.csv", low_memory=False)
 
     with st.container():
         st.subheader("Choose analysis type below:")
