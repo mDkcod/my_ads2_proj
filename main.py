@@ -159,17 +159,10 @@ if selection == "Analysis":
         elif choice== "Data":
             with st.container():
                 st.title("Data")
-                if st.checkbox("LOAD DATA FOR SAN-FRANSICO CRIME"):
-
-                    #data = pd.read_csv("df4.csv")
-                    datashow = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv", low_memory=False)
-                    datashow
-                else:
-                    st.empty()
-
-
-            #datashow = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv",low_memory = False)
-            #datashow.head(6)
+  
+                   datashow = pd.read_csv("https://data.sfgov.org/resource/wg3w-h783.csv", low_memory=False)
+                   datashow
+                
         elif choice == "Districts":
             with st.container():
                 # load_data()
