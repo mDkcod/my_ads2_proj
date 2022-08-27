@@ -81,6 +81,107 @@ def draw_guage():
 };
 
     st_echarts(options=option, key="1")
+@st.cache(suppress_st_warning=True)
+def get_coordinates(selectedRegion):
+        df = pd.read_csv("df45.csv", low_memory = False)
+        df["Month"] = pd.DatetimeIndex(df["Dates"]).month
+        df["Year"] = pd.DatetimeIndex(df["Dates"]).year
+        df["Day"] = pd.DatetimeIndex(df["Dates"]).day
+        df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
+        df= df.query("Year>= 2012")
+
+        if regions== "BAYVIEW":
+            dQueries = df.query("PdDistrict=='BAYVIEW'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions== "CENTRAL":
+            dQueries = df.query("PdDistrict=='CENTRAL'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+
+        elif regions== "INGLESIDE":
+            dQueries = df.query("PdDistrict=='INGLESIDE'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+
+        elif regions == "MISSION":
+            dQueries = df.query("PdDistrict=='MISSION'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions == "NORTHERN":
+            dQueries = df.query("PdDistrict=='NORTHERN'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions == "PARK":
+            dQueries = df.query("PdDistrict=='PARK'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions == "RICHMOND":
+            dQueries = df.query("PdDistrict=='RICHMOND'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions== "SOUTHERN":
+            dQueries = df.query("PdDistrict=='SOUTHERN'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        elif regions == "TARAVAL":
+            dQueries = df.query("PdDistrict=='TARAVAL'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
+        else:
+            dQueries = df.query("PdDistrict=='TENDERLOIN'")
+            f = dQueries.X.max()
+            t = dQueries.X.min()
+            b = dQueries.Y.max()
+            c = dQueries.Y.min()
+            xt = np.random.uniform(t, f)
+            yt = np.random.uniform(c, b)
+            return xt, yt
 
 #side bar
 warnings.filterwarnings("ignore")
@@ -269,107 +370,6 @@ if selection == "Analysis":
             #st.line_chart(df["Year"].value_counts())
 
     #draw_guage()
-@st.cache(suppress_st_warning=True)
-def get_coordinates(selectedRegion):
-        df = pd.read_csv("df45.csv", low_memory = False)
-        df["Month"] = pd.DatetimeIndex(df["Dates"]).month
-        df["Year"] = pd.DatetimeIndex(df["Dates"]).year
-        df["Day"] = pd.DatetimeIndex(df["Dates"]).day
-        df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
-        df= df.query("Year>= 2012")
-
-        if regions== "BAYVIEW":
-            dQueries = df.query("PdDistrict=='BAYVIEW'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions== "CENTRAL":
-            dQueries = df.query("PdDistrict=='CENTRAL'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-
-        elif regions== "INGLESIDE":
-            dQueries = df.query("PdDistrict=='INGLESIDE'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-
-        elif regions == "MISSION":
-            dQueries = df.query("PdDistrict=='MISSION'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions == "NORTHERN":
-            dQueries = df.query("PdDistrict=='NORTHERN'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions == "PARK":
-            dQueries = df.query("PdDistrict=='PARK'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions == "RICHMOND":
-            dQueries = df.query("PdDistrict=='RICHMOND'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions== "SOUTHERN":
-            dQueries = df.query("PdDistrict=='SOUTHERN'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        elif regions == "TARAVAL":
-            dQueries = df.query("PdDistrict=='TARAVAL'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
-        else:
-            dQueries = df.query("PdDistrict=='TENDERLOIN'")
-            f = dQueries.X.max()
-            t = dQueries.X.min()
-            b = dQueries.Y.max()
-            c = dQueries.Y.min()
-            xt = np.random.uniform(t, f)
-            yt = np.random.uniform(c, b)
-            return xt, yt
 
 
 elif selection == "Predict":
