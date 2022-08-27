@@ -425,7 +425,7 @@ elif selection == "Predict":
             right_col.title("Select Inputs")
 
 
-draw_guage()
+        draw_guage()
         
 
 
