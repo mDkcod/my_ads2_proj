@@ -411,13 +411,13 @@ elif selection == "Predict":
         pred= groups.predict(scaling)
 #st.write(pred.item())
         def predictions():
-        if pred.item() == 2:
+            if pred.item() == 2:
             
-            right_col.title("VERY HIGH rate of Crime expected")
-        elif pred.item() == 1:
-            right_col.title("MODERATE rate of Crime expected")
-        else:
-            right_col.title("LOW rate of Crime expected")
+                right_col.title("VERY HIGH rate of Crime expected")
+            elif pred.item() == 1:
+                right_col.title("MODERATE rate of Crime expected")
+            else:
+                right_col.title("LOW rate of Crime expected")
     #break
         if st.button("PREDICT"):
             predictions()
