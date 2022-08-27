@@ -224,7 +224,8 @@ if selection == "Analysis":
 
                 if time_selection == "Months":
                     #data1 = data1.query("Year==2018")
-                    data["Month"] = pd.DatetimeIndex(data["Dates]).month
+                    data3= pd.read_csv("df45.csv")
+                    data3["Month"] = pd.DatetimeIndex(data3["Dates]).month
                     x2 = data["Month"].value_counts().index
                     y2 = data["Month"].value_counts()
 
