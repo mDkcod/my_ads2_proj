@@ -21,14 +21,7 @@ import warnings
 
 # a method to load data
 @st.cache(persist= True)
-def load_data():
-    df = pd.read_csv("train.csv", low_memory=False)
-    df["Year"] = pd.DatetimeIndex(df["Dates"]).year
-    df = df.query("Year>= 2007")
-    df["Month"] = pd.DatetimeIndex(df["Dates"]).month
-    df["Day"] = pd.DatetimeIndex(df["Dates"]).day
-    df["Hour"] = pd.DatetimeIndex(df["Dates"]).hour
-    return df
+
 
 
 ##########the method below is used to draw a guage to show crime rate.
@@ -309,7 +302,7 @@ elif selection == "Predict":
 #@st.cache(persist=True)
 @st.cache(suppress_st_warning=True)
 def get_coordinates(selectedRegion):
-        df = pd.read_csv("train.csv", low_memory = False)
+        df = pd.read_csv("df45.csv", low_memory = False)
         df["Month"] = pd.DatetimeIndex(df["Dates"]).month
         df["Year"] = pd.DatetimeIndex(df["Dates"]).year
         df["Day"] = pd.DatetimeIndex(df["Dates"]).day
